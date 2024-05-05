@@ -1,6 +1,6 @@
 # DEFlow
 
-![cover](figures/framework.pdf)
+![cover](figures/framework.png)
 
 Code release for the paper "Data-centric Entry-wise Normalizing Flows for Molecule Generation" , under review at *TKDE*.
 
@@ -21,9 +21,11 @@ Install the required packages from `requirements.txt`.
 ### For MOSES
 
 MOSES
+
 ```python train_model.py  --data_name moses  --batch_size  256  --max_epochs 200 --gpu 0  --debug True  --save_dir=results/moses_0514   --b_n_flow 10  --b_hidden_ch 512,512  --a_n_flow 38  --a_hidden_gnn 256  --a_hidden_lin  512,64   --mask_row_size_list 1 --mask_row_stride_list 1  --noise_scale 0.6  --b_conv_lu 2  2>&1 | tee moses_0514.log```
 
 MOSES1k
+
 ```python train_model.py  --data_name moses1k  --batch_size  256  --max_epochs 200 --gpu 0  --debug True  --save_dir=results/moses1k_0515   --b_n_flow 10  --b_hidden_ch 512,512  --a_n_flow 38  --a_hidden_gnn 256  --a_hidden_lin  512,64   --mask_row_size_list 1 --mask_row_stride_list 1  --noise_scale 0.6  --b_conv_lu 2  2>&1 | tee moses1k_0516.log```
 
 ### For Osteogenesis
@@ -40,9 +42,11 @@ MOSES1k
 ### For MOSES
 
 MOSES
+
 ```python generate.py --model_dir results/moses_0514  -snapshot model_snapshot_epoch_200 --gpu  0  --data_name moses --hyperparams-path moflow-params.json   --temperature 0.85  --batch-size 10000 --n_experiments 5  --save_fig false --correct_validity true 2>&1 | tee moses_random_generation_0515.log```
 
 MOSES1k
+
 ```python generate.py --model_dir results/moses1k_0515  -snapshot model_snapshot_epoch_200 --gpu  0  --data_name moses1k --hyperparams-path moflow-params.json   --temperature 0.85  --batch-size 10000 --n_experiments 5  --save_fig false --correct_validity true 2>&1 | tee moses1k_random_generation_0516.log```
 
 ### For Osteogenesis
